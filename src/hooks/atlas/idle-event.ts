@@ -16,7 +16,7 @@ import {
 } from "../../features/claude-code-session-state"
 import { getLastAgentFromSession } from "./session-last-agent"
 import { isSessionInBoulderLineage } from "./boulder-session-lineage"
-import { createInternalAgentContinuationTextPart } from "../../shared"
+import { createInternalAgentContinuationTextPart } from "../../shared/internal-initiator-marker"
 import { getAgentConfigKey } from "../../shared/agent-display-names"
 import { log } from "../../shared/logger"
 import { shouldPromptAfterSessionIdle } from "../shared/session-idle-settle"

@@ -30,12 +30,9 @@ import {
   createLegacyPluginToastHook,
 } from "../../hooks"
 import { createAnthropicEffortHook } from "../../hooks/anthropic-effort"
-import {
-  detectExternalNotificationPlugin,
-  getNotificationConflictWarning,
-  log,
-  normalizeSDKResponse,
-} from "../../shared"
+import { detectExternalNotificationPlugin, getNotificationConflictWarning } from "../../shared/external-plugin-detector"
+import { log } from "../../shared/logger"
+import { normalizeSDKResponse } from "../../shared/normalize-sdk-response"
 import { safeCreateHook } from "../../shared/safe-create-hook"
 import { sessionExists } from "../../tools"
 import { isTmuxIntegrationEnabled } from "../../create-runtime-tmux-config"

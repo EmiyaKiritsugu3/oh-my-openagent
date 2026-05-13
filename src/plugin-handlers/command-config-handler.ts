@@ -20,11 +20,8 @@ import {
   loadOpencodeProjectSkills,
   skillsToCommandDefinitionRecord,
 } from "../features/opencode-skill-loader";
-import {
-  detectExternalSkillPlugin,
-  getSkillPluginConflictWarning,
-  log,
-} from "../shared";
+import { detectExternalSkillPlugin, getSkillPluginConflictWarning } from "../shared/external-plugin-detector"
+import { log } from "../shared/logger";
 import type { PluginComponents } from "./plugin-components-loader";
 
 export async function applyCommandConfig(params: {

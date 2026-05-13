@@ -2,7 +2,7 @@ import { existsSync } from "fs"
 import { join } from "path"
 import type { ClaudeHookEvent } from "./types"
 import { log } from "../../shared/logger"
-import { getOpenCodeConfigDir } from "../../shared"
+import { getOpenCodeConfigDir } from "../../shared/opencode-config-dir"
 import { bunFile } from "../../shared/bun-file-shim"
 
 const CONFIG_CACHE_TTL_MS = 30_000

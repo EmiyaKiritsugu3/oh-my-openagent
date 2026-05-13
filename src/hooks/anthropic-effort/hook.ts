@@ -1,4 +1,6 @@
-import { isProviderUsingOAuth, log, normalizeModelID } from "../../shared"
+import { isProviderUsingOAuth } from "../../shared/opencode-provider-auth"
+import { log } from "../../shared/logger"
+import { normalizeModelID } from "../../shared/model-normalization"
 
 const OPUS_PATTERN = /claude-.*opus/i
 const EFFORT_UNSUPPORTED_PATTERN = /claude-.*haiku/i

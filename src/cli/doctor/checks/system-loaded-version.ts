@@ -5,7 +5,10 @@ import { resolveSymlink } from "../../../shared/file-utils"
 import { getLatestVersion } from "../../../hooks/auto-update-checker/checker"
 import { extractChannel } from "../../../hooks/auto-update-checker"
 import { PACKAGE_NAME } from "../constants"
-import { ACCEPTED_PACKAGE_NAMES, getOpenCodeCacheDir, getOpenCodeConfigPaths, parseJsonc } from "../../../shared"
+import { ACCEPTED_PACKAGE_NAMES } from "../../../shared/plugin-identity"
+import { getOpenCodeCacheDir } from "../../../shared/data-path"
+import { getOpenCodeConfigPaths } from "../../../shared/opencode-config-dir"
+import { parseJsonc } from "../../../shared/jsonc-parser"
 
 interface PackageJsonShape {
   version?: string

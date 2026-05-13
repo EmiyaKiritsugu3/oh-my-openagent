@@ -2,18 +2,15 @@ import * as fs from "fs";
 import { homedir } from "node:os";
 import * as path from "path";
 import { OhMyOpenCodeConfigSchema, type OhMyOpenCodeConfig } from "./config";
-import {
-  log,
-  containsPath,
-  deepMerge,
-  getOpenCodeConfigDir,
-  addConfigLoadError,
-  parseJsonc,
-  detectPluginConfigFile,
-  findProjectOpencodePluginConfigFiles,
-  migrateConfigFile,
-  resolveAgentDefinitionPaths,
-} from "./shared";
+import { log } from "./shared/logger"
+import { containsPath } from "./shared/contains-path"
+import { deepMerge } from "./shared/deep-merge"
+import { getOpenCodeConfigDir } from "./shared/opencode-config-dir"
+import { addConfigLoadError } from "./shared/config-errors"
+import { parseJsonc, detectPluginConfigFile } from "./shared/jsonc-parser"
+import { findProjectOpencodePluginConfigFiles } from "./shared/project-discovery-dirs"
+import { migrateConfigFile } from "./shared"
+import { resolveAgentDefinitionPaths } from "./shared/resolve-agent-definition-paths";
 import { migrateLegacyConfigFile } from "./shared/migrate-legacy-config-file";
 import { CONFIG_BASENAME, LEGACY_CONFIG_BASENAME } from "./shared/plugin-identity";
 import { validateAgentOrder } from "./shared/agent-ordering";

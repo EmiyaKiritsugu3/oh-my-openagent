@@ -5,8 +5,10 @@ import { PART_STORAGE, THINKING_TYPES } from "../constants"
 import type { MessageData, StoredPart } from "../types"
 import { readMessages } from "./messages-reader"
 import { readParts } from "./parts-reader"
-import { log, isSqliteBackend, patchPart } from "../../../shared"
-import { normalizeSDKResponse } from "../../../shared"
+import { log } from "../../../shared/logger"
+import { isSqliteBackend } from "../../../shared/opencode-storage-detection"
+import { patchPart } from "../../../shared/opencode-http-api"
+import { normalizeSDKResponse } from "../../../shared/normalize-sdk-response"
 
 type OpencodeClient = PluginInput["client"]
 type StoredSignedThinkingPart = StoredPart & {

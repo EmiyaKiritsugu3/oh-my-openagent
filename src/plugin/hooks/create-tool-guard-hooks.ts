@@ -20,12 +20,8 @@ import {
   createTeamToolGating,
   createFsyncSkipWarningHook,
 } from "../../hooks"
-import {
-  getOpenCodeVersion,
-  isOpenCodeVersionAtLeast,
-  log,
-  OPENCODE_NATIVE_AGENTS_INJECTION_VERSION,
-} from "../../shared"
+import { getOpenCodeVersion, isOpenCodeVersionAtLeast, OPENCODE_NATIVE_AGENTS_INJECTION_VERSION } from "../../shared/opencode-version"
+import { log } from "../../shared/logger"
 import { safeCreateHook } from "../../shared/safe-create-hook"
 
 export type ToolGuardHooks = {

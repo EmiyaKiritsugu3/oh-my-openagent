@@ -5,7 +5,7 @@ import type { CheckResult, DoctorIssue, SystemInfo } from "../types"
 import { findOpenCodeBinary, getOpenCodeVersion, compareVersions } from "./system-binary"
 import { getPluginInfo } from "./system-plugin"
 import { getLatestPluginVersion, getLoadedPluginVersion, getSuggestedInstallTag } from "./system-loaded-version"
-import { parseJsonc } from "../../../shared"
+import { parseJsonc } from "../../../shared/jsonc-parser"
 import { PUBLISHED_PACKAGE_NAME, PLUGIN_NAME, LEGACY_PLUGIN_NAME } from "../../../shared/plugin-identity"
 
 interface SystemCheckDeps {

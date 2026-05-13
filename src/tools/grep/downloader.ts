@@ -1,6 +1,6 @@
 import { existsSync, readdirSync } from "node:fs"
 import { join } from "node:path"
-import { extractZip as extractZipBase } from "../../shared"
+import { extractZip as extractZipBase } from "../../shared/zip-extractor"
 import { CACHE_DIR_NAME } from "../../shared/plugin-identity"
 import {
   cleanupArchive,

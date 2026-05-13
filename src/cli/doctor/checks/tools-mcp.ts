@@ -3,7 +3,7 @@ import { homedir } from "node:os"
 import { join } from "node:path"
 
 import type { McpServerInfo } from "../types"
-import { parseJsonc } from "../../../shared"
+import { parseJsonc } from "../../../shared/jsonc-parser"
 
 const BUILTIN_MCP_SERVERS = ["context7", "grep_app"]
 

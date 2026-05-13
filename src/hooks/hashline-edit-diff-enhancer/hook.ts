@@ -1,4 +1,4 @@
-import { log } from "../../shared"
+import { log } from "../../shared/logger"
 import { bunFile } from "../../shared/bun-file-shim"
 import { generateUnifiedDiff, countLineDiffs } from "../../tools/hashline-edit/diff-utils"
 

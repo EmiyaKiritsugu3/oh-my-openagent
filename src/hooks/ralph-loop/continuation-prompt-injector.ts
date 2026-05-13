@@ -3,12 +3,10 @@ import { log } from "../../shared/logger"
 import { findNearestMessageWithFields } from "../../features/hook-message-injector"
 import { getMessageDir } from "./message-storage-directory"
 import { withTimeout } from "./with-timeout"
-import {
-	createInternalAgentContinuationTextPart,
-	isRecord,
-	normalizeSDKResponse,
-	resolveInheritedPromptTools,
-} from "../../shared"
+import { createInternalAgentContinuationTextPart } from "../../shared/internal-initiator-marker"
+import { isRecord } from "../../shared/record-type-guard"
+import { normalizeSDKResponse } from "../../shared/normalize-sdk-response"
+import { resolveInheritedPromptTools } from "../../shared/prompt-tools"
 import { normalizeAgentForPromptKey } from "../../shared/agent-display-names"
 
 type MessageInfo = {

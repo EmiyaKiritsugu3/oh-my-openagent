@@ -1,4 +1,4 @@
-import { log } from "./shared"
+import { log } from "./shared/logger"
 
 export type PluginDispose = () => Promise<void>
 

@@ -1,6 +1,6 @@
 import { join } from "path"
 import { existsSync } from "fs"
-import { getClaudeConfigDir } from "../../shared"
+import { getClaudeConfigDir } from "../../shared/claude-config-dir"
 import { bunFile } from "../../shared/bun-file-shim"
 import type { ClaudeHooksConfig, HookMatcher, HookAction } from "./types"
 

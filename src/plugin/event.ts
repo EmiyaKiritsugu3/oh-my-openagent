@@ -25,7 +25,8 @@ import {
   clearBackgroundOutputConsumptionsForTaskSession,
   restoreBackgroundOutputConsumption,
 } from "../shared/background-output-consumption";
-import { createInternalAgentContinuationTextPart, resetMessageCursor } from "../shared";
+import { createInternalAgentContinuationTextPart } from "../shared/internal-initiator-marker"
+import { resetMessageCursor } from "../shared/session-cursor";
 import { getAgentConfigKey } from "../shared/agent-display-names";
 import { readConnectedProvidersCache } from "../shared/connected-providers-cache";
 import { invalidateContextWindowUsageCache } from "../shared/dynamic-truncator";

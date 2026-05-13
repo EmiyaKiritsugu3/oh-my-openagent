@@ -1,7 +1,9 @@
 import { createBuiltinAgents } from "../agents";
 import { createSisyphusJuniorAgentWithOverrides } from "../agents/sisyphus-junior";
 import type { OhMyOpenCodeConfig } from "../config";
-import { isTaskSystemEnabled, log, migrateAgentConfig } from "../shared";
+import { isTaskSystemEnabled } from "../shared/task-system-enabled"
+import { log } from "../shared/logger"
+import { migrateAgentConfig } from "../shared/permission-compat";
 import {
   getAgentConfigKey,
   getAgentDisplayName,

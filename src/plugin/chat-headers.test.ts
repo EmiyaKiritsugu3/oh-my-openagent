@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test"
 
-import { OMO_INTERNAL_INITIATOR_MARKER } from "../shared"
+import { OMO_INTERNAL_INITIATOR_MARKER } from "../shared/internal-initiator-marker"
 import { createChatHeadersHandler } from "./chat-headers"
 
 describe("createChatHeadersHandler", () => {

@@ -5,8 +5,8 @@ import {
   SESSION_TIMEOUT_MS,
 } from "../../shared/tmux"
 import type { TrackedSession } from "./types"
-import { log } from "../../shared"
-import { normalizeSDKResponse } from "../../shared"
+import { log } from "../../shared/logger"
+import { normalizeSDKResponse } from "../../shared/normalize-sdk-response"
 import { resolveMessageEventSessionID } from "../../shared/event-session-id"
 
 const MIN_STABILITY_TIME_MS = 10 * 1000

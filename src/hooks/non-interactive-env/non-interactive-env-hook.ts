@@ -1,7 +1,7 @@
 import type { PluginInput } from "@opencode-ai/plugin"
 import { HOOK_NAME, NON_INTERACTIVE_ENV, SHELL_COMMAND_PATTERNS } from "./constants"
-import { log, buildEnvPrefix } from "../../shared"
-import { detectShellType, type ShellType } from "../../shared/shell-env"
+import { log } from "../../shared/logger"
+import { buildEnvPrefix, detectShellType, type ShellType } from "../../shared/shell-env"
 
 export * from "./constants"
 export * from "./detector"

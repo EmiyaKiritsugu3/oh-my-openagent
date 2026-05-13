@@ -5,7 +5,8 @@ import { CHECK_IDS, CHECK_NAMES } from "../constants"
 import type { CheckResult } from "../types"
 import { readFileSync, promises as fs } from "node:fs"
 import path from "node:path"
-import { detectPluginConfigFile, getOpenCodeConfigDir, parseJsonc } from "../../../shared"
+import { detectPluginConfigFile, parseJsonc } from "../../../shared/jsonc-parser"
+import { getOpenCodeConfigDir } from "../../../shared/opencode-config-dir"
 
 export async function checkTeamMode(): Promise<CheckResult> {
   const config = loadTeamModeConfig()

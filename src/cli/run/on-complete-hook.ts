@@ -1,5 +1,5 @@
 import { spawnWithWindowsHide } from "../../shared/spawn-with-windows-hide"
-import { detectShellType } from "../../shared"
+import { detectShellType } from "../../shared/shell-env"
 import { log } from "../../shared/logger"
 
 async function readOutput(

@@ -1,5 +1,5 @@
 import type { PluginInput } from "@opencode-ai/plugin"
-import { normalizeSDKResponse } from "../../shared"
+import { normalizeSDKResponse } from "../../shared/normalize-sdk-response"
 import type { SessionMessage, SessionMetadata, TodoItem } from "./types"
 import { isSessionSdkUnavailableError } from "./sdk-unavailable"
 

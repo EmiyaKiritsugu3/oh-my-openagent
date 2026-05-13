@@ -1,6 +1,7 @@
 import { join } from "path"
 
-import { getDataDir, getOpenCodeConfigDir } from "../../shared"
+import { getDataDir } from "../../shared/data-path"
+import { getOpenCodeConfigDir } from "../../shared/opencode-config-dir"
 
 export function getLspServerAdditionalPathBases(workingDirectory: string): string[] {
   const configDir = getOpenCodeConfigDir({ binary: "opencode" })
