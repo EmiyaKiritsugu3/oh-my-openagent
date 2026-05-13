@@ -3,7 +3,7 @@ import type { FallbackEntry } from "../../shared/model-requirements"
 import type { ConcurrencyManager } from "./concurrency"
 import type { OpencodeClient, QueueItem } from "./constants"
 import { log } from "../../shared/logger"
-import { readConnectedProvidersCache, readProviderModelsCache } from "../../shared"
+import { readConnectedProvidersCache, readProviderModelsCache } from "../../shared/connected-providers-cache"
 import {
   shouldRetryError,
   getNextFallback,
