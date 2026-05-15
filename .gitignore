@@ -40,6 +40,9 @@ oauth-success.html
 .dori/
 .playwright-mcp/
 
+# Local development log (fork-only, never upstream)
+devlog/
+
 # Debugging / session artifacts (skill workspace residue)
 .debug-journal*.md
 session-ses_*.md
