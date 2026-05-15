@@ -5,24 +5,16 @@ import { normalizeSDKResponse } from "../../shared/normalize-sdk-response"
 import { log } from "../../shared/logger"
 import { getAgentConfigKey } from "../../shared/agent-display-names"
 
-import { ABORT_WINDOW_MS, CONTINUATION_COOLDOWN_MS, DEFAULT_SKIP_AGENTS, FAILURE_RESET_WINDOW_MS, HOOK_NAME, MAX_CONSECUTIVE_FAILURES } from "./constants"
 import { isLastAssistantMessageAborted } from "./abort-detection"
+import { acknowledgeCompactionGuard, isCompactionGuardActive } from "./compaction-guard"
+import { ABORT_WINDOW_MS, CONTINUATION_COOLDOWN_MS, DEFAULT_SKIP_AGENTS, FAILURE_RESET_WINDOW_MS, HOOK_NAME, MAX_CONSECUTIVE_FAILURES } from "./constants"
+import { startCountdown } from "./countdown"
 import { hasUnansweredQuestion } from "./pending-question-detection"
+import { resolveLatestMessageInfo } from "./resolve-message-info"
+import type { SessionStateStore } from "./session-state"
 import { shouldStopForStagnation } from "./stagnation-detection"
 import { getIncompleteCount } from "./todo"
-import type { MessageInfo, MessageWithInfo, ResolvedMessageInfo, Todo } from "./types"
-import { resolveLatestMessageInfo } from "./resolve-message-info"
-import { acknowledgeCompactionGuard, isCompactionGuardActive } from "./compaction-guard"
-import type { SessionStateStore } from "./session-state"
-import { startCountdown } from "./countdown"
-
-function shouldAllowActivityProgress(modelID: string | undefined): boolean {
-  if (!modelID) {
-    return false
-  }
-
-  return !modelID.toLowerCase().includes("codex")
-}
+import type { MessageWithInfo, ResolvedMessageInfo, Todo } from "./types"
 
 export async function handleSessionIdle(args: {
   ctx: PluginInput
@@ -140,7 +132,7 @@ export async function handleSessionIdle(args: {
   }
 
   const effectiveCooldown =
-    CONTINUATION_COOLDOWN_MS * Math.pow(2, Math.min(state.consecutiveFailures, 5))
+    CONTINUATION_COOLDOWN_MS * 2 ** Math.min(state.consecutiveFailures, 5)
   if (state.lastInjectedAt && Date.now() - state.lastInjectedAt < effectiveCooldown) {
     log(`[${HOOK_NAME}] Skipped: cooldown active`, { sessionID, effectiveCooldown, consecutiveFailures: state.consecutiveFailures })
     return
@@ -204,7 +196,6 @@ export async function handleSessionIdle(args: {
     sessionID,
     incompleteCount,
     todos,
-    { allowActivityProgress: shouldAllowActivityProgress(resolvedInfo?.model?.modelID) },
   )
   if (shouldStopForStagnation({ sessionID, incompleteCount, progressUpdate })) {
     return

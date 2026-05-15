@@ -1,6 +1,7 @@
 import type { PluginInput } from "@opencode-ai/plugin"
 
 import { normalizeSDKResponse } from "../../shared/normalize-sdk-response"
+import { isSyntheticOrInternalUserMessage } from "../../shared/internal-initiator-marker"
 import { isCompactionMessage } from "../../shared/compaction-marker"
 
 import type { MessageInfo, MessageWithInfo, ResolveLatestMessageInfoResult } from "./types"
@@ -29,6 +30,9 @@ export async function resolveLatestMessageInfo(
 
     if (isCompaction) {
       encounteredCompaction = true
+      continue
+    }
+    if (isSyntheticOrInternalUserMessage(message)) {
       continue
     }
     if (info?.agent || info?.model || (info?.modelID && info?.providerID)) {
