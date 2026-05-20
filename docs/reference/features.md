@@ -107,6 +107,8 @@ See the **[Team Mode Guide](../guide/team-mode.md)** for configuration, team spe
 - **Feature modules**: `src/features/` has 20 modules.
 - **Tool system**: `src/tools/` has 16 tool directories that produce **20 to 39 tools** depending on config gates.
 - **Hook system**: 5-tier composition is **52 base hooks**. With team mode it becomes **59** (extra tool guard + transforms + direct team session event handlers).
+=======
+>>>>>>> 24a94587 (docs: update hook counts and configuration references for stall-injector)
 - **MCP system**: 3 tiers: built-in remote MCPs (`websearch`, `context7`, `grep_app`), `.mcp.json` loader, and skill-embedded MCP from `SKILL.md` frontmatter.
 - **Managers**: plugin startup creates 4 managers: TmuxSessionManager, BackgroundManager, SkillMcpManager, ConfigHandler.
 - **Config pipeline**: 6 phases in order: provider, plugin-components, agents, tools, MCPs, commands.
@@ -849,6 +851,7 @@ Current composition counts:
 | **todo-continuation-enforcer** | Event | Enforces todo completion — yanks idle agents back to work. |
 | **compaction-todo-preserver**  | Event | Preserves todo state during session compaction.            |
 | **unstable-agent-babysitter**  | Event | Handles unstable agent behavior with recovery strategies.  |
+| **stall-injector**             | Message | Warns main agent when background subagents stop making progress. |
 
 #### Integration
 

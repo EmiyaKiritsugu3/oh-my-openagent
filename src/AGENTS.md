@@ -72,9 +72,10 @@ createHooks()
   │   └─ createTransformHooks()   # 5 [+2 with team-mode]: claudeCodeHooks, keywordDetector,
   │                                  contextInjectorMessagesTransform, thinkingBlockValidator,
   │                                  toolPairValidator [+ teamModeStatusInjector, teamMailboxInjector]
-  ├─→ createContinuationHooks()   # 7: stopContinuationGuard, compactionContextInjector,
+  ├─→ createContinuationHooks()   # 8: stopContinuationGuard, compactionContextInjector,
   │                                  compactionTodoPreserver, todoContinuationEnforcer (boulder),
-  │                                  unstableAgentBabysitter, backgroundNotificationHook, atlasHook
+  │                                  unstableAgentBabysitter, backgroundNotificationHook,
+  │                                  stallInjectorHook, atlasHook
   └─→ createSkillHooks()          # 2: categorySkillReminder, autoSlashCommand
 
   Direct event handlers (src/plugin/event.ts, when team_mode.enabled): +4
@@ -83,6 +84,8 @@ createHooks()
 ```
 
 Total: 52 base, 59 with team-mode. Each tier produces an object whose values are `(input, output) => void` handlers; the matching OpenCode handler invokes them in registration order via `safeHook()` wrappers.
+=======
+>>>>>>> 24a94587 (docs: update hook counts and configuration references for stall-injector)
 
 ## SUBSYSTEM INVENTORY
 

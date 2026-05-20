@@ -1,10 +1,14 @@
 # src/hooks/ — ~50 Lifecycle Hooks Across 57 Dirs
+=======
+>>>>>>> 24a94587 (docs: update hook counts and configuration references for stall-injector)
 
 **Generated:** 2026-05-08
 
 ## OVERVIEW
 
 50 hooks (7 of the 57 dirs are `zauc-mocks-*` test scaffolds + 1 `shared/`). 5-tier composition wired in `src/plugin/hooks/`. All hooks follow `createXXXHook(deps) → HookFunction` factory pattern.
+=======
+>>>>>>> 24a94587 (docs: update hook counts and configuration references for stall-injector)
 
 ## TIER COMPOSITION
 
@@ -13,13 +17,15 @@
 | **Session** | `create-session-hooks.ts` | 24 | 24 | OpenCode session lifecycle + chat.params + chat.message |
 | **Tool Guard** | `create-tool-guard-hooks.ts` | 14 | 15 | Pre/post tool execution (+1: `team-tool-gating`) |
 | **Transform** | `create-transform-hooks.ts` | 5 | 7 | `experimental.chat.messages.transform` (+2: `team-mode-status-injector`, `team-mailbox-injector`) |
-| **Continuation** | `create-continuation-hooks.ts` | 7 | 7 | Boulder/atlas/compaction/notification |
+| **Continuation** | `create-continuation-hooks.ts` | 8 | 8 | Boulder/atlas/compaction/notification/stall alerts |
 | **Skill** | `create-skill-hooks.ts` | 2 | 2 | Skill awareness (categorySkillReminder, autoSlashCommand) |
 | **Direct event handlers** | `src/plugin/event.ts` | 0 | +4 | `team-session-events/` sub-files: `team-idle-wake-hint`, `team-lead-orphan-handler`, `team-member-error-handler`, `team-member-status-handler` |
 
 Total exposed hooks: **52 base, 59 with team-mode** (counts the 4 team-session-events handlers individually).
 
 Hook name allowlist for `disabled_hooks`: 53 enum values in [`src/config/schema/hooks.ts`](file:///Users/yeongyu/local-workspaces/omo/src/config/schema/hooks.ts) `HookNameSchema`. Team-session-event sub-hooks are not individually listed in the schema — they activate together with `team_mode.enabled`.
+=======
+>>>>>>> 24a94587 (docs: update hook counts and configuration references for stall-injector)
 
 ### Tier 1: Session Hooks (24)
 
@@ -79,7 +85,7 @@ Hook name allowlist for `disabled_hooks`: 53 enum values in [`src/config/schema/
 | `thinkingBlockValidator` | messages.transform | Validate thinking block structure |
 | `toolPairValidator` | messages.transform | Validate tool call/result pairing |
 
-### Tier 4: Continuation Hooks (7)
+### Tier 4: Continuation Hooks (8)
 
 | Hook | Event | Purpose |
 |------|-------|---------|
@@ -89,6 +95,7 @@ Hook name allowlist for `disabled_hooks`: 53 enum values in [`src/config/schema/
 | `todoContinuationEnforcer` | session.idle | **Boulder** — force continuation on incomplete todos |
 | `unstableAgentBabysitter` | session.idle | Monitor unstable agent behavior |
 | `backgroundNotificationHook` | event | Background task completion notifications |
+| `stallInjectorHook` | chat.message | Warn main sessions when background tasks stop making progress |
 | `atlasHook` | event | Master orchestrator for boulder/background sessions |
 
 ### Tier 5: Skill Hooks (2)
